@@ -7,7 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import movie.view.MovieController;
+import view.MovieController;
 
 public class AppMain extends Application {
 	public AppMain() {
