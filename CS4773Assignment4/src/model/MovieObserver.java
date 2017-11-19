@@ -2,15 +2,13 @@ package model;
 
 import java.util.Observable;
 
-public class MovieObserver extends Observable {
 
-	public interface updateMovie {
-		public void update();
-	}
+public class MovieObserver{
 
-	public class ObserverDelegate extends Observable implements updateMovie {
+	ObserverDelegate delegate = new ObserverDelegate();
+
+	public class ObserverDelegate extends Observable{
 		public void update() {
-			System.out.println("About to notify observers");
 			setChanged();
 			notifyObservers();
 		}

@@ -34,7 +34,7 @@
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
          <children>
             <Label fx:id="ratingText" alignment="CENTER" text="1" />
-            <Slider fx:id="ratingSlider" majorTickUnit="1.0" max="10.0" min="1.0" minorTickCount="0" onDragDropped="#handleSliderAction" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="1.0" />
+            <Slider fx:id="ratingSlider" majorTickUnit="1.0" max="10.0" min="1.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="1.0" />
          </children>
       </VBox>
    </children>
