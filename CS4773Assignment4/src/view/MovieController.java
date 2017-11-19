@@ -69,6 +69,7 @@ public class MovieController implements Initializable, Observer{
 	}
 
 	void setMovieValues(KeyEvent event) throws NumberFormatException{
+		//TODO: Fix year deletion. If you delete the whole number, the last digit stays on the second view until another field is updated.
 		if (event.getSource() == movieTitle)
 			MovieSingleton.getInstanceSingleThread().movie.setMovieTitle(movieTitle.getText());
 		if (event.getSource() == director)

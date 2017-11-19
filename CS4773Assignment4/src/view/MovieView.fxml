@@ -25,7 +25,7 @@
       <Label text="Movie Title" />
       <Label text="Year Released" GridPane.rowIndex="1" />
       <Label text="Director" GridPane.rowIndex="2" />
-      <TextField fx:id="movieTitle" onKeyReleased="#handleKeyInput" GridPane.columnIndex="1" />
+      <TextField fx:id="movieTitle" onKeyReleased="#handleUserInput" GridPane.columnIndex="1" />
       <TextField fx:id="releaseYear" onKeyReleased="#handleUserInput" GridPane.columnIndex="1" GridPane.rowIndex="1" />
       <TextField fx:id="director" onKeyReleased="#handleUserInput" GridPane.columnIndex="1" GridPane.rowIndex="2" />
       <Label text="Writer(s)" GridPane.rowIndex="3" />
