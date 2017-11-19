@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import model.Movie;
 import model.MovieSingleton;
 import javafx.fxml.Initializable;
@@ -40,17 +41,25 @@ public class MovieController implements Initializable, Observer{
 	}
 
 	public void updateFields(Movie movie) {
-		movieTitle.setText(movie.getMovieTitle());
-		director.setText(movie.getDirector());
+		clearFields();
+		movieTitle.appendText(movie.getMovieTitle());
+		director.appendText(movie.getDirector());
 		if (movie.getReleaseYear() != 0)
-			releaseYear.setText(""+ movie.getReleaseYear());
-		writer.setText(movie.getWriter());
+			releaseYear.appendText(""+ movie.getReleaseYear());
+		writer.appendText(movie.getWriter());
 		ratingText.setText(""+movie.getRating());
 		ratingSlider.setValue(movie.getRating());
 	}
+	
+	public void clearFields() {
+		releaseYear.clear();
+		movieTitle.clear();
+		director.clear();
+		writer.clear();
+	}
 
 	@FXML
-	void handleUserInput(ActionEvent event) {
+	void handleUserInput(KeyEvent event) {
 		try {
 			setMovieValues(event);
 		}catch (NumberFormatException e)
@@ -59,7 +68,7 @@ public class MovieController implements Initializable, Observer{
 		}
 	}
 
-	void setMovieValues(ActionEvent event) throws NumberFormatException{
+	void setMovieValues(KeyEvent event) throws NumberFormatException{
 		if (event.getSource() == movieTitle)
 			MovieSingleton.getInstanceSingleThread().movie.setMovieTitle(movieTitle.getText());
 		if (event.getSource() == director)
@@ -68,6 +77,12 @@ public class MovieController implements Initializable, Observer{
 			MovieSingleton.getInstanceSingleThread().movie.setReleaseYear(Integer.parseInt(releaseYear.getText()));
 		if (event.getSource() == writer)
 			MovieSingleton.getInstanceSingleThread().movie.setWriter(writer.getText());
+	}
+	
+	@FXML
+	void handleKeyInput(KeyEvent event) {
+		if (event.getSource() == movieTitle)
+			MovieSingleton.getInstanceSingleThread().movie.setMovieTitle(movieTitle.getText());
 	}
 
 	ChangeListener<String> textFieldListener = (observable, oldValue, newValue) -> {

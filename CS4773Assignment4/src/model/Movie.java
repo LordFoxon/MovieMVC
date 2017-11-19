@@ -19,7 +19,11 @@ public class Movie {
 		this.rating = rating;
 	}
 	
-	public Movie() {	}
+	public Movie() {
+		this.movieTitle = "";
+		this.director = "";
+		this.writer = "";
+	}
 
 	
 	public ObserverDelegate getObserver() {
