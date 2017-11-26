@@ -76,6 +76,9 @@ public class MovieController implements Initializable, Observer{
 			MovieSingleton.getInstanceSingleThread().movie.setDirector(director.getText());
 		if (event.getSource() == releaseYear && !releaseYear.getText().equals(""))
 			MovieSingleton.getInstanceSingleThread().movie.setReleaseYear(Integer.parseInt(releaseYear.getText()));
+		else if(event.getSource() == releaseYear && releaseYear.getText().equals("")) {
+			MovieSingleton.getInstanceSingleThread().movie.setReleaseYear(0);
+		}
 		if (event.getSource() == writer)
 			MovieSingleton.getInstanceSingleThread().movie.setWriter(writer.getText());
 	}
