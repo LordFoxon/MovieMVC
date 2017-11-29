@@ -26,6 +26,7 @@ public class AppMain extends Application {
 		MovieController controller = new MovieController();
 		FXMLLoader loader = new FXMLLoader(controller.getClass().getResource("MovieView.fxml"));
 		loader.setController(controller);
+		MovieSingleton.getInstanceSingleThread().movie.getObserver().addObserver(controller);
 
 		Parent pane = loader.load();
 		stage.setScene(new Scene(pane, 400, 300));
