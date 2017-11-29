@@ -4,7 +4,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import app.Alerts;
 import javafx.beans.value.ChangeListener;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
@@ -62,8 +61,7 @@ public class MovieController implements Initializable, Observer{
 	void handleUserInput(KeyEvent event) {
 		try {
 			setMovieValues(event);
-		}catch (NumberFormatException e)
-		{
+		} catch (NumberFormatException e) {
 			Alerts.showError("Cannot do numerical conversion "+e.getMessage().toLowerCase());
 		}
 	}
@@ -104,5 +102,4 @@ public class MovieController implements Initializable, Observer{
 		ratingText.setText(String.valueOf((int) ratingSlider.getValue()));
 		MovieSingleton.getInstanceSingleThread().movie.setRating(Integer.parseInt(ratingText.getText()));
 	};
-
 }

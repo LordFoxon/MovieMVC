@@ -73,5 +73,4 @@ public class Movie {
 		this.rating = rating;
 		observer.delegate.update();
 	}
-
 }
